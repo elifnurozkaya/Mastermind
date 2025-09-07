@@ -15,16 +15,42 @@ class Game
   end
 
   def compare_guess
+    user_pass = []
+    code_pass = []
     self.reset_pins
     4.times do |i|
+      if code_pass.include? i 
+        next
+      end
       4.times do |j|
+        if user_pass.include? j
+          next
+        end
         if @user_code[j] == @hidden_code[i]
           if i == j
             @black_pin += 1 
-          else
-            @white_pin += 1
-            break
+            user_pass.push(j)
+            code_pass.push(i)
           end
+        
+          
+        end
+      end
+    end
+
+    4.times do |i|
+      if code_pass.include? i 
+        next
+      end
+      4.times do |j|
+        if user_pass.include? j
+          next
+        end
+        if @user_code[j] == @hidden_code[i]
+            @white_pin += 1 
+            user_pass.push(j)
+            code_pass.push(i)
+            break
           
         end
       end
