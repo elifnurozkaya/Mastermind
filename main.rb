@@ -22,7 +22,7 @@ while(play == 1)
   elsif choice == "y"
     break
   else
-    puts "What is even that mean??"
+    puts "What does even that mean??"
   end
 end
 end
