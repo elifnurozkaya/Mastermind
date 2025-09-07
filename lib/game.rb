@@ -92,7 +92,7 @@ class Game
   end
 
   def revial_code
-    puts "Hidden code was: #{@hidden_code}"
+    puts "Hidden code was: 1-#{@hidden_code[0]} 2-#{@hidden_code[1]} 3-#{@hidden_code[2]} 4-#{@hidden_code[3]}"
   end
 
   def check_guess
@@ -104,14 +104,12 @@ class Game
         @finish = 1
       else
         @left_attempts -= 1
+        if @left_attempts == 0
+          puts "You lost!"
+          self.revial_code
+          @finish = -1;
+        end
       end
-    else
-      puts "You lost!"
-      self.revial_code
-      @finish = -1;
     end
-    
-
   end
-
 end
